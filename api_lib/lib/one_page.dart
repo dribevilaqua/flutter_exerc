@@ -16,7 +16,7 @@ class _OnePageState extends State<OnePage> {
   ValueNotifier<List<Post>> posts = ValueNotifier<List<Post>>([]);
   ValueNotifier<bool> inLoader = ValueNotifier<bool>(false);
 
-  Future<void> callAPI() async {
+  callAPI() async {
     var client = http.Client();
     try {
       inLoader.value = true;
@@ -71,7 +71,7 @@ class _OnePageState extends State<OnePage> {
               const SizedBox(height: 10),
               CustomButtonWidget(
                 disable: false,
-                onPressed: random,
+                onPressed: callAPI,
                 title: 'Custom BTN',
                 titleSize: 18,
               ),
