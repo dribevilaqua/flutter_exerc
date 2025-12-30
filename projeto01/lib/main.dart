@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/splash',
       routes: {
         '/splash': (_) => const Splashpage(),
-        '/login': (_) => const LoginPage(),
+        '/login': (_) => LoginPage(),
       },
     );
   }

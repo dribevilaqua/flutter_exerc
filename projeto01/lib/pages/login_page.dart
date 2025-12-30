@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:projeto01/Controllers/login_controller.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+
+  LoginController _controller = LoginController();
+
+  LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,11 +17,15 @@ class LoginPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Icon(Icons.people, size: 100,),
-          TextField(decoration: InputDecoration(label: Text('Login' )),) ,
-          TextField( decoration: InputDecoration(label: Text('Senha' )), obscureText: true,),
+          TextField(decoration: InputDecoration(label: Text('Login' )),
+          onChanged: _controller.setLogin,
+          ),
+          TextField( decoration: InputDecoration(label: Text('Senha' )), obscureText: true,
+          onChanged: _controller.setPass,
+          ),
           SizedBox(height: 20),
           ElevatedButton(onPressed: () {}, style: ElevatedButton.styleFrom(backgroundColor: const Color.fromARGB(255, 10, 180, 10)), child: Text('Login'),
-          )
+          ),
         ],
         ),
       ),
