@@ -3,15 +3,13 @@ import 'package:projeto01/Controllers/login_controller.dart';
 import 'package:projeto01/components/custom_login_button_%20component.dart';
 
 class LoginPage extends StatelessWidget {
-  LoginController _controller = LoginController();
-  final GlobalKey<ScaffoldState> scaffoldkey = GlobalKey<ScaffoldState>();
+  final LoginController _controller = LoginController();
 
   LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: scaffoldkey,
       body: Container(
         padding: EdgeInsets.all(28),
         child: Column(
