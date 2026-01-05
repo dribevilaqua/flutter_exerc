@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:projeto01/Controllers/home_controller.dart';
 import 'package:projeto01/models/post.model.dart';
 import 'package:projeto01/repositories/home_repository_imp.dart';
+import 'package:projeto01/service/prefs_service.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -26,6 +27,16 @@ class _HomePageState extends State<HomePage> {
         title: const Text('Home'),
         centerTitle: true,
         backgroundColor: Colors.green,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.logout),
+            onPressed: () async {
+              await PrefsService.logout();
+              Navigator.of(context)
+                  .pushNamedAndRemoveUntil('/login', (_) => false);
+            },
+          ),
+        ],
       ),
       body: ValueListenableBuilder<List<PostModel>>(
         valueListenable: _controller.posts,
