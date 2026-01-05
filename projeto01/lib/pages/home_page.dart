@@ -7,47 +7,46 @@ class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
-  State<HomePage> createState() => _HomepageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _HomepageState extends State<HomePage> {
+class _HomePageState extends State<HomePage> {
   final HomeController _controller = HomeController(HomeRepositoryImp());
 
   @override
   void initState() {
-    _controller.fetch();
     super.initState();
+    _controller.fetch();
   }
 
   @override
-    Widget build(BuildContext context) {
-        return Scaffold(
-              appBar: AppBar(
-        title: const Text(
-          'Home',
-          style: TextStyle(
-            color: Colors.white,
-          ),
-        ),
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Home'),
         centerTitle: true,
         backgroundColor: Colors.green,
-        elevation: 0,
-          ),    
+      ),
       body: ValueListenableBuilder<List<PostModel>>(
-              valueListenable: _controller.posts,
-              builder: (_, list, __) {
-                return ListView.separated(
-                  shrinkWrap: true,
-                  itemCount: list.length,
-                  itemBuilder: (_, idx) => ListTile(
-                    leading: Text(list[idx].id.toString()),
-                    title: Text(list[idx].title),
-                    trailing: Icon(Icons.arrow_forward),
-                  ),
-                  separatorBuilder: (_, __) => Divider(),
+        valueListenable: _controller.posts,
+        builder: (_, list, __) {
+          return ListView.separated(
+            itemCount: list.length,
+            itemBuilder: (_, idx) => ListTile(
+              leading: Text(list[idx].id.toString()),
+              title: Text(list[idx].title),
+              trailing: const Icon(Icons.arrow_forward),
+              onTap: () {
+                Navigator.of(context).pushNamed(
+                  '/details',
+                  arguments: list[idx],
                 );
               },
-            )
+            ),
+            separatorBuilder: (_, __) => const Divider(),
+          );
+        },
+      ),
     );
   }
 }
