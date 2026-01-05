@@ -1,16 +1,13 @@
-# projeto01
+📱 Projeto01 — Aplicativo Flutter
 
-A new Flutter project.
+Este é um projeto criado enquanto estudo Flutter, seguindo uma playlist de aulas passo a passo sobre construção de apps com o Flutter.
 
-## Getting Started
+O objetivo é praticar os principais conceitos aprendidos nas aulas, como navegação entre telas, leitura de dados e uso de Widgets.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+🧩 O que este app faz:
+✔️ Tela de Splash
+✔️ Tela de Login
+✔️ Tela Home que carrega uma lista de posts
+✔️ Tela de Detalhes que mostra informações completas de um post quando clicado
+✔️ Leitura de dados de um arquivo JSON local
+✔️ Navegação entre telas com passagem de argumentos
